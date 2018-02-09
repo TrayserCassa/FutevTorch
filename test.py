@@ -7,6 +7,33 @@
 import time
 
 from rpi_ws281x import *
+class FutevTorch():
+        def __init__(self, pin=18, frequency=800000, dma=5, brightness=255):
+                self.__pin = pin
+                self.__frequency = frequency
+                self.__dma = dma
+                self.__brightness = brightness
+
+        def __init_torch(self):
+                self.__thread = FutevTorchThread(self.__pin, self.__frequency, self.__dma, self.__brightness)
+
+        def run_pulse(self, red, green, blue, intervall=0.005):
+                self.__init_torch()
+                self.__thread.set_color(red, green, blue)
+                self.__thread.run_pulse(intervall)
+                print("Run pulse")
+
+
+        def run_rainbow(self, intervall=0.02):
+                self.__init_torch()
+                self.__thread.run_rainbow(intervall)
+                print("Run rainbow")
+                
+        def stop(self):
+                self.__thread.stop()
+                self.__thread.join()
+
+
 
 
 # LED strip configuration:
