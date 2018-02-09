@@ -4,13 +4,13 @@ This library is written in Python3 and used the pip3 package
 https://pypi.python.org/pypi/rpi_ws281x/1.1.0
 
 So install this Lib with 
->> sudo pip3 install rpi_ws281x
+> sudo pip3 install rpi_ws281x
 
 
 
 Basic Usage:
 
->>      torch = FutevTorch()
+>       torch = FutevTorch()
         torch.run_pulse(255,0,255)
         print("Pulse")
         sleep(3)
