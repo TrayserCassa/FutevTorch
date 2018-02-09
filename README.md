@@ -10,7 +10,8 @@ So install this Lib with
 
 Basic Usage:
 
->       torch = FutevTorch()
+>       
+        torch = FutevTorch()
         torch.run_pulse(255,0,255)
         print("Pulse")
         sleep(3)
