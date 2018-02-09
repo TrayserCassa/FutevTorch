@@ -3,6 +3,9 @@
 import _rpi_ws281x as ws
 import atexit
 
+class FutevWS281():
+    pass
+
 
 def Color(red, green, blue):
     """Convert the provided red, green, blue color to a 24-bit color value.
@@ -143,27 +146,6 @@ class PixelStrip(object):
         of 0 is the darkest and 255 is the brightest.
         """
         ws.ws2811_channel_t_brightness_set(self._channel, brightness)
-
-    def getPixels(self):
-        """Return an object which allows access to the LED display data as if
-        it were a sequence of 24-bit RGB values.
-        """
-        return self._led_data
-
-    def numPixels(self):
-        """Return the number of pixels in the display."""
-        return ws.ws2811_channel_t_count_get(self._channel)
-
-    def getPixelColor(self, n):
-        """Get the 24-bit RGB color value for the LED at position n."""
-        return self._led_data[n]
-
-    def getPixelColorRGB(self, n):
-        c = lambda: None
-        setattr(c, 'r', self._led_data[n] >> 16 & 0xff)
-        setattr(c, 'g', self._led_data[n] >> 8  & 0xff)
-        setattr(c, 'b', self._led_data[n]    & 0xff)
-        return c
 
 # Shim for back-compatibility
 class Adafruit_NeoPixel(PixelStrip):
