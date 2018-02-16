@@ -167,7 +167,7 @@ if __name__ == '__main__':
 
         torch.run_rainbow()
         print("Rainbow")
-        sleep(3)
+        sleep(30)
         torch.stop()
 
         torch.run_blink_short(255,0,0, intervall=10)
